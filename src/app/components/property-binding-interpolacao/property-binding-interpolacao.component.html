@@ -1,0 +1,134 @@
+<section>
+  <article>
+    <h1>Interpolação</h1>
+    <p>{{ this.url }}</p>
+    <p>Resultado de 1 + 1 é: {{ 1 + 1 }}</p>
+    <p>Resutado de 1 + 1 não é: {{ 1 + 1 + getValor() }}</p>
+    <p>Curso de Angular: {{ this.cursoAngular && this.getCurtir() }}</p>
+  </article>
+
+  <hr />
+
+  <article>
+    <h1>Property Binding</h1>
+    <img [src]="this.urlImagem" alt="img aleatória" />
+  </article>
+
+  <hr />
+
+  <article>
+    <h1>Class e Style Binding</h1>
+    <div>
+      Selecione uma classe
+      <select name="" id="" #classe (change)="(0)">
+        <option value="alert-success">Success</option>
+        <option value="alert-info">Info</option>
+        <option value="alert-warning">Alert</option>
+        <option value="alert-danger">Error</option>
+      </select>
+    </div>
+
+    <div class="alert {{ classe.value }}">div</div>
+    <br /><br />
+
+    <div
+      class="alert alert-danger"
+      [style.display]="classe.value == 'alert-danger' ? 'block' : 'none'"
+    >
+      div danger
+    </div>
+
+    <div
+      class="alert alert-success"
+      role="alert"
+      [class.alert-success]="classe.value == 'alert-success'"
+    >
+      ...
+    </div>
+    <div
+      class="alert alert-info"
+      role="alert"
+      [class.alert-info]="classe.value == 'alert-info'"
+    >
+      ...
+    </div>
+    <div
+      class="alert alert-warning"
+      role="alert"
+      [class.alert-warning]="classe.value == 'alert-warning'"
+    >
+      ...
+    </div>
+    <div
+      class="alert alert-danger"
+      role="alert"
+      [class.alert-danger]="classe.value == 'alert-danger'"
+    >
+      ...
+    </div>
+  </article>
+
+  <hr />
+
+  <article>
+    <h3>Event Binding</h3>
+
+    <button class="btn btn-primary" (click)="buttonClicked()">Click me!</button>
+
+    <br /><br />
+
+    <input
+      type="text"
+      name="ipt-text"
+      id="ipt-text"
+      (keyup)="onKeyUp($event)"
+      (keyup.enter)="onKeyUpEnter($event)"
+      (blur)="onKeyUpEnter($event)"
+    />
+
+    @if (this.currentCaractere.length > 0) {
+    <p>Current Caractere: {{ this.currentCaractere }}</p>
+    } @if (this.valueSaved.length > 0 && this.valueSaved != '') {
+    <p>Value Saved: {{ this.valueSaved }}</p>
+    }
+
+    <br /><br />
+    <p
+      (mouseover)="onMouseOverOut($event)"
+      (mouseout)="onMouseOverOut($event)"
+      [class.hightlight]="this.isMouseOver"
+      onfocus
+      onblur
+    >
+      Hover over me...
+    </p>
+  </article>
+
+  <hr />
+
+  <article>
+    <h3>Two-way Binding</h3>
+
+    <input type="text" [(ngModel)]="name" />
+
+    <p>You entered: {{ name }}</p>
+
+    @if (person.name != '' && person.age > 0) {
+    <p>My name {{ person.name }} is and I'm {{ person.age }} years old</p>
+    }
+
+    <input
+      type="text"
+      name="person-name"
+      id="person-name"
+      [(ngModel)]="person.name"
+    />
+    <br />
+    <input
+      type="text"
+      name="person-age"
+      id="person-age"
+      [(ngModel)]="person.age"
+    />
+  </article>
+</section>

@@ -1,0 +1,18 @@
+<article>
+  <h1>Input / Output Properties</h1>
+
+  <hr>
+
+  <h2>Input</h2>
+  <app-input [nameCourse]="nameCourse"></app-input>
+
+  <hr>
+
+  <h2>Output</h2>
+
+  @if (message != '') {
+    <h3>{{ message }}</h3>
+  }
+
+  <app-output [number]="number" (changedValue)="onChangeValue($event)"></app-output>
+</article>

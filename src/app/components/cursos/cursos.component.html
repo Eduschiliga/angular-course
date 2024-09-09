@@ -1,0 +1,8 @@
+<p>Lista de cursos do portal: {{ this.nomePortal }}</p>
+
+
+<ul>
+  @for (curso of cursos; track $index) {
+    <li>{{ curso }}</li>
+  }
+</ul>
